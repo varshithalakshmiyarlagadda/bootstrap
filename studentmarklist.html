@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>MARKS REPORT</title>
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <h1>STUDENTS MARKSMEMO</h1>
+  <form name="fm1">
+    <label for="sno">SNO:</label><input type="text" name="sno" id="sno" placeholder="sno" required autofocus><br>
+    <label for="sname">SNAME:</label><input type="text" name="sname" id="sname" placeholder="sname" required><br>
+    <label for="sclass">SCLASS:</label><input type="text" name="sclass" id="sclass" placeholder="sclass" required><br>
+    <label for="ssec">SSEC:</label><input type="text" name="ssec" id="ssec" placeholder="ssec" required><br>
+    <label for="m1">M1:</label><input type="text" name="m1" id="m1" placeholder="m1" required><br><br><br>
+    <label for="m2">M2:</label><input type="text" name="m2" id="m2" placeholder="m2" required><br><br><br>
+    <label for="m3">M3:</label><input type="text" name="m3" id="m3" placeholder="m3" required><br><br><br>
+    <label for="m4">M4:</label><input type="text" name="m4" id="m4" placeholder="m4" required><br><br><br>
+    <label for="m5">M5:</label><input type="text" name="m5" id="m5" placeholder="m5" required><br><br><br>
+    <label for="m6">M6:</label><input type="text" name="m6" id="m6" placeholder="m6" required><br><br><br>
+  <input type="button" value="submit" onClick="calculateResults()"><br><br><br>
+  
+    <label for="tot">TOT:</label><input type="text" name="tot" id="tot" placeholder="tot" readonly><br><br><br>
+    <label for="avg">AVG:</label><input type="text" name="avg" id="avg" placeholder="avg" readonly><br><br><br>
+    <label for="passfail">PASS/FAIL:</label><input type="text" name="passfail" id="passfail" placeholder="pass/fail" readonly><br><br><br>
+    <label for="grade">GRADE:</label><input type="text" name="grade" id="grade" placeholder="grade" readonly>
+  
+  </form>
+
+  <script>
+    function calculateResults() {
+       m1 = parseInt(document.getElementById("m1").value)
+       m2 = parseInt(document.getElementById("m2").value)
+       m3 = parseInt(document.getElementById("m3").value)
+       m4 = parseInt(document.getElementById("m4").value)
+       m5 = parseInt(document.getElementById("m5").value)
+       m6 = parseInt(document.getElementById("m6").value)
+
+       tot = m1 + m2 + m3 + m4 + m5 + m6
+      avg = tot / 6;
+      passFail = (m1 < 35 || m2 < 35 || m3 < 35 || m4 < 35 || m5 < 35 || m6 < 35) ? "FAIL" : "PASS";
+      grade = calculateGrade(avg);
+
+      document.getElementById("tot").value = tot
+      document.getElementById("avg").value = avg
+      document.getElementById("passfail").value = passFail
+      document.getElementById("grade").value = grade
+    }
+
+    function calculateGrade(avg) {
+      var grade;
+
+      if (avg >= 90) {
+        grade = "A+";
+      } else if (avg >= 80) {
+        grade = "A";
+      } else if (avg >= 70) {
+        grade = "B";
+      } else if (avg >= 60) {
+        grade = "C";
+      } else if (avg >= 50) {
+        grade = "D";
+      } else {
+        grade = "F";
+      }
+
+      return grade;
+    }
+  </script>
+</body>
+
+</html>
+s
